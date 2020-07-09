@@ -52,10 +52,10 @@ var jsonModel = function() {
         return "@implement " + a + "\n@end\n"
     },
     E = function(a, d) {
-        return "@property (nonatomic ,assign) " + a + " " + d + ";\n"
+        return "@property (nonatomic, assign) " + a + " " + d + ";\n"
     },
     x = function(a, d) {
-        return "@property (nonatomic ,strong) " + a + " *" + d + ";\n"
+        return "@property (nonatomic, strong) " + a + " *" + d + ";\n"
     },
     F = function(a) {
         return "public static class " + a + "    {\r\n"
@@ -99,7 +99,7 @@ var jsonModel = function() {
                 var g;
                 0 < b.length && (g = b[0]);
                 "string" === typeof g ? c += x("NSArray <NSString *>", f) : "number" === typeof g || "boolean" === typeof g ? c += x("NSArray <NSNumber *>", f) : "object" === typeof g && (h += "Item", c += x("NSArray <" + h + " *>", f), b = y(b, e), k = 0 < k.length ? k + "\r\n\r\n" + t(h, b) : t(h, b), l = 0 < l.length ? l + "\r\n\r\n" + u(h) : u(h))
-            } else r(b) ? (b = y(b, e), c += x(h, f), k = 0 < k.length ? k + "\r\n\r\n" + t(h, b) : t(h, b), l = 0 < l.length ? l + "\r\n\r\n" + u(h) : u(h)) : "string" === typeof b ? c += "@property (nonatomic ,copy) NSString *" + f + ";\n": "number" === typeof b ? c = 0 <= b.toString().indexOf(".") ? c + E("CGFloat", f) : c + E("NSInteger", f) : "boolean" === typeof b && (c += E("BOOL", f))
+            } else r(b) ? (b = y(b, e), c += x(h, f), k = 0 < k.length ? k + "\r\n\r\n" + t(h, b) : t(h, b), l = 0 < l.length ? l + "\r\n\r\n" + u(h) : u(h)) : "string" === typeof b ? c += "@property (nonatomic, copy) NSString *" + f + ";\n": "number" === typeof b ? c = 0 <= b.toString().indexOf(".") ? c + E("CGFloat", f) : c + E("NSInteger", f) : "boolean" === typeof b && (c += E("BOOL", f))
         } else alert("key = " + d);
         return c
     },
